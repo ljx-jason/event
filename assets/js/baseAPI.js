@@ -7,6 +7,7 @@ $.ajaxPrefilter(function(options) {
             Authorization: localStorage.token
         }
     }
+    //校验未登录直接访问后台
     options.complete = function(response) {
         const { message, status } = response.responseJSON;
         if (message === '身份认证失败！' && status === 1) {
